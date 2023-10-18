@@ -1,4 +1,4 @@
-import tailwindConfig from "@ui/config/tailwind.config.js"
+import tailwindConfig from "@config/tailwind/tailwind.config.js"
 
 /** @type {import('tailwindcss').Config} */
 export default {

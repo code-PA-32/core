@@ -1,0 +1,24 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "start:fe": "turbo run dev --filter=app",
+    "start:be": "turbo run dev --filter=server"
+  },
+  "devDependencies": {
+    "eslint": "^8.48.0",
+    "prettier": "^3.0.3",
+    "turbo": "latest"
+  },
+  "name": "core",
+  "packageManager": "bun@1.0.6",
+  "workspaces": [
+    "fe/app",
+    "be/app",
+    "packages/*",
+    "configs/*"
+  ]
+}

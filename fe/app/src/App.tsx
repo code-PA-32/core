@@ -12,15 +12,17 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "ui"
-import {useState} from "react";
+} from "ui";
+import { useState } from "react";
 
 function App() {
-  const [text, setText] = useState("")
+  const [text, setText] = useState("");
   const getText = () => {
-    void fetch('http://localhost:3001/').then(res => res.json()).then(res => setText(res)).catch(() => setText("Error"))
-
-  }
+    void fetch("http://localhost:3001/")
+      .then((res) => res.json())
+      .then((res) => setText(res))
+      .catch(() => setText("Error"));
+  };
   return (
     <div>
       <Button onClick={() => getText()}>Click Me!</Button>
@@ -31,7 +33,7 @@ function App() {
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56">
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
-          <DropdownMenuSeparator/>
+          <DropdownMenuSeparator />
           <DropdownMenuGroup>
             <DropdownMenuItem>
               Profile
@@ -50,7 +52,7 @@ function App() {
               <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
             </DropdownMenuItem>
           </DropdownMenuGroup>
-          <DropdownMenuSeparator/>
+          <DropdownMenuSeparator />
           <DropdownMenuGroup>
             <DropdownMenuItem>Team</DropdownMenuItem>
             <DropdownMenuSub>
@@ -59,7 +61,7 @@ function App() {
                 <DropdownMenuSubContent>
                   <DropdownMenuItem>Email</DropdownMenuItem>
                   <DropdownMenuItem>Message</DropdownMenuItem>
-                  <DropdownMenuSeparator/>
+                  <DropdownMenuSeparator />
                   <DropdownMenuItem>More...</DropdownMenuItem>
                 </DropdownMenuSubContent>
               </DropdownMenuPortal>
@@ -69,11 +71,11 @@ function App() {
               <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
             </DropdownMenuItem>
           </DropdownMenuGroup>
-          <DropdownMenuSeparator/>
+          <DropdownMenuSeparator />
           <DropdownMenuItem>GitHub</DropdownMenuItem>
           <DropdownMenuItem>Support</DropdownMenuItem>
           <DropdownMenuItem disabled>API</DropdownMenuItem>
-          <DropdownMenuSeparator/>
+          <DropdownMenuSeparator />
           <DropdownMenuItem>
             Log out
             <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
@@ -81,7 +83,7 @@ function App() {
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

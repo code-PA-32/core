@@ -1,6 +1,6 @@
-export {cn} from './lib/utils';
-export {Button, buttonVariants} from './components/button';
-export type {ButtonProps} from './components/button';
+export { cn } from "./lib/utils";
+export { Button, buttonVariants } from "./components/button";
+export type { ButtonProps } from "./components/button";
 export {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,5 +16,5 @@ export {
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
-  DropdownMenuTrigger
-} from './components/dropdown-menu'
+  DropdownMenuTrigger,
+} from "./components/dropdown-menu";

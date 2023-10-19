@@ -1,10 +1,10 @@
 {
   "name": "server",
-  "module": "index.ts",
+  "module": "src/index.ts",
   "type": "module",
   "scripts": {
-    "dev": "bun --watch run index.ts",
-    "build": "bun build ./index.ts --outdir ./dist"
+    "dev": "bun --watch run src/index.ts",
+    "build": "bun build src/index.ts --outdir ./dist"
   },
   "devDependencies": {
     "bun-types": "^1.0.6",

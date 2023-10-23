@@ -18,7 +18,7 @@ import { useState } from "react";
 export const App = () => {
   const [text, setText] = useState("");
   const getText = () => {
-    void fetch("http://localhost:3001/")
+    void fetch(`${window.location.origin}/api`)
       .then((res) => res.json())
       .then((res) => setText(res))
       .catch(() => setText("Error"));

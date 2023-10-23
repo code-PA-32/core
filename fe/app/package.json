@@ -11,12 +11,14 @@
     "build": "tsc && vite build",
     "lint": "bunx --bun eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "tsc": "tsc",
-
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-router": "beta",
+    "next-themes": "^0.2.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "lucide-react": "~0.287.0"
   },
   "devDependencies": {
     "@config/eslint-config": "workspace:*",

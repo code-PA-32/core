@@ -24,7 +24,7 @@ export const App = () => {
       .catch(() => setText("Error"));
   };
   return (
-    <div>
+    <div className="flex items-center gap-2">
       <Button onClick={() => getText()}>Click Me!</Button>
       <p className="text-xl text-red-600 border w-max p-3">{text}</p>
       <DropdownMenu>

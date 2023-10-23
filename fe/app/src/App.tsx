@@ -15,7 +15,7 @@ import {
 } from "ui";
 import { useState } from "react";
 
-function App() {
+export const App = () => {
   const [text, setText] = useState("");
   const getText = () => {
     void fetch("http://localhost:3001/")
@@ -84,6 +84,4 @@ function App() {
       </DropdownMenu>
     </div>
   );
-}
-
-export default App;
+};

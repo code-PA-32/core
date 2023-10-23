@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "bunx --bun vite",
     "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "bunx --bun eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "tsc": "tsc",
+
     "preview": "vite preview"
   },
   "dependencies": {
@@ -14,13 +16,13 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "ui": "workspace:*",
+    "@config/eslint-config": "workspace:*",
     "@config/tailwind": "workspace:*",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@typescript-eslint/parser": "^6.0.0",
-    "@vitejs/plugin-react-swc": "^3.3.2",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
+    "@vitejs/plugin-react-swc": "^3.4.0",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
@@ -28,6 +30,7 @@
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.0.2",
+    "ui": "workspace:*",
     "vite": "^4.4.11"
   }
 }

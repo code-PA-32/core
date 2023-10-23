@@ -10,5 +10,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(port, "localhost", 511, () => {
-  console.log(`Server is listening on port ${port}`);
+  console.info(`Server is listening on port ${port}`);
 });

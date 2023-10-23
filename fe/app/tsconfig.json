@@ -21,5 +21,4 @@
   },
 
   "include": ["src", "vite.config.ts"],
-  "types": ["vite-plugin-sentry/client"]
 }

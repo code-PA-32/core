@@ -16,15 +16,24 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
+  useToast,
+  ToastAction,
 } from "ui";
 
 const Setting = () => {
+  const { toast } = useToast();
   const [text, setText] = useState("");
   const getText = () => {
     void fetch(`${window.location.origin}/api`)
       .then((res) => res.json())
       .then((res) => setText(res))
-      .catch(() => setText("Error"));
+      .catch(() =>
+        toast({
+          title: "Error",
+          description: "Failed to fetch text",
+          action: <ToastAction altText="Close">Close</ToastAction>,
+        }),
+      );
   };
   return (
     <div>

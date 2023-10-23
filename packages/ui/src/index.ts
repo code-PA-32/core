@@ -1,5 +1,5 @@
-export { cn } from "./lib/utils";
-export { Button, buttonVariants } from "./components/button";
+export { cn } from "./lib/utils.js";
+export { Button, buttonVariants } from "./components/button.js";
 export type { ButtonProps } from "./components/button";
 export {
   DropdownMenu,
@@ -17,4 +17,16 @@ export {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "./components/dropdown-menu";
+} from "./components/dropdown-menu.js";
+export {
+  ToastProvider,
+  Toast,
+  ToastAction,
+  ToastClose,
+  ToastDescription,
+  ToastTitle,
+  ToastViewport,
+} from "./components/toast.js";
+export type { ToastProps, ToastActionElement } from "./components/toast";
+export { Toaster } from "./components/toaster.js";
+export { useToast, toast, reducer } from "./components/use-toast.js";

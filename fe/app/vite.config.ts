@@ -13,7 +13,7 @@ export default defineConfig({
       },
     },
   },
-  plugins: [react()],
+  plugins: [react({})],
   resolve: {
     alias: {
       "#": path.resolve(__dirname, "./src"),

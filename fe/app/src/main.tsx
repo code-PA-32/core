@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import "./services/supertokens.js";
 import { RouterProvider } from "@tanstack/react-router";
 import { router } from "#router";
 import { ThemeProvider } from "next-themes";

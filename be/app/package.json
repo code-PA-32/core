@@ -3,6 +3,7 @@
   "module": "src/index.ts",
   "type": "module",
   "scripts": {
+    "start": "bun run dev && bun run dev:docker",
     "dev": "bun --watch run src/index.ts",
     "build": "bun build src/index.ts --outdir ./dist",
     "tsc": "tsc",

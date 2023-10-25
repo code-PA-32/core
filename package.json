@@ -14,7 +14,7 @@
     "turbo": "latest"
   },
   "name": "core",
-  "packageManager": "bun@1.0.6",
+  "packageManager": "bun@1.0.7",
   "workspaces": [
     "fe/app",
     "be/app",

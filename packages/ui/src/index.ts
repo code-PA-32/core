@@ -30,3 +30,5 @@ export {
 export type { ToastProps, ToastActionElement } from "./components/toast";
 export { Toaster } from "./components/toaster.js";
 export { useToast, toast, reducer } from "./components/use-toast.js";
+export { Input } from "./components/input.js";
+export { Label } from "./components/label.js";

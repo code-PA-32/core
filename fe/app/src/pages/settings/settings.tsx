@@ -36,8 +36,8 @@ const Setting = () => {
       );
   };
   return (
-    <div>
-      <div className="flex items-center gap-2 p-2">
+    <div className="flex flex-col mx-auto items-center justify-center">
+      <div className="flex items-center gap-2 p-2 mx-auto">
         <Button onClick={() => getText()}>Click Me!</Button>
         <p
           className={cn(
@@ -103,7 +103,9 @@ const Setting = () => {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <Link to="/">Main</Link>
+      <Link to="/">
+        <Button>Main</Button>
+      </Link>
     </div>
   );
 };

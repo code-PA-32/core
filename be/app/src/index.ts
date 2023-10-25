@@ -12,13 +12,13 @@ const port: number = process.env.PORT as any as number;
 supertokens.init({
   framework: "express",
   supertokens: {
-    connectionURI: "http://localhost:3567",
-    apiKey: "core-secret-key-supertokens",
+    connectionURI: process.env.SUPERTOKENS_URL as string,
+    apiKey: process.env.SUPERTOKENS_API_KEY as string,
   },
   appInfo: {
     appName: "core-be-app",
-    apiDomain: "http://localhost:4000",
-    websiteDomain: "http://localhost:3001",
+    apiDomain: process.env.SUPERTOKENS_API_DOMAIN as string,
+    websiteDomain: process.env.WEBSITE_DOMAIN as string,
     apiBasePath: "/auth",
     websiteBasePath: "/login",
   },
@@ -27,13 +27,13 @@ supertokens.init({
       flowType: "MAGIC_LINK",
       contactMethod: "EMAIL",
     }),
-    Session.init(), // initializes session features
+    Session.init(),
   ],
 });
 
 app.use(
   cors({
-    origin: "http://localhost:3001",
+    origin: process.env.WEBSITE_DOMAIN as string,
     allowedHeaders: ["content-type", ...supertokens.getAllCORSHeaders()],
     credentials: true,
   }),

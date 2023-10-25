@@ -9,10 +9,9 @@ async function sendMagicLink(email: string) {
       email,
     });
     if (response.status === "SIGN_IN_UP_NOT_ALLOWED") {
-      // this can happen due to automatic account linking. See that section in our docs.
+      console.error("Sign in/up is not allowed");
     } else {
-      // Magic link sent successfully.
-      console.error("Please check your email for the magic link");
+      console.info("Please check your email for the magic link");
     }
   } catch (err: unknown) {
     console.error("Oops! Something went wrong.", err);

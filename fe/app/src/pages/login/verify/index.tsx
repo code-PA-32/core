@@ -1,10 +1,10 @@
 import { Route, useNavigate } from "@tanstack/react-router";
-import { LoginIndex } from "#pages/login/index.js";
 import {
   getLoginAttemptInfo,
   consumeCode,
 } from "supertokens-web-js/recipe/passwordless";
 import { useCallback, useEffect } from "react";
+import { rootRoute } from "#router.js";
 
 async function isThisSameBrowserAndDevice() {
   return (await getLoginAttemptInfo()) !== undefined;
@@ -30,7 +30,7 @@ const Verify = () => {
       if (isSame) {
         void handleMagicLinkClicked();
       } else {
-        console.log("error");
+        console.info("error");
       }
     });
   }, [handleMagicLinkClicked]);
@@ -39,7 +39,7 @@ const Verify = () => {
 };
 
 export const VerifyIndex = new Route({
-  getParentRoute: () => LoginIndex,
-  path: "/verify",
+  getParentRoute: () => rootRoute,
+  path: "/login/verify",
   component: Verify,
 });

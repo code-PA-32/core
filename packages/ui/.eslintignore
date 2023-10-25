@@ -1,0 +1,7 @@
+.idea
+.vscode
+build
+node_modules
+public
+react-app-env.d.ts
+dist

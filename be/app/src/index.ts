@@ -41,9 +41,12 @@ app.use(
 
 app.use(middleware());
 
+app.use((req, res, next) => {
+  next();
+});
+
 app.get("/", (req, res) => {
-  const text = JSON.stringify("Hello world!");
-  res.send(text);
+  res.send(JSON.stringify(`Hello world! ${req.path}`));
 });
 
 app.use(errorHandler());

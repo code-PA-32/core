@@ -9,7 +9,7 @@
     "start:be": "turbo run dev --filter=server"
   },
   "devDependencies": {
-    "eslint": "~8.48.0",
+    "eslint": "^8.52.0",
     "prettier": "~3.0.3",
     "turbo": "latest"
   },

@@ -5,7 +5,13 @@
     "build": {
       "outputMode": "new-only",
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**"]
+      "outputs": ["dist/**", ".next/**"],
+      "inputs": [
+        "src/**/*.tsx",
+        "src/**/*.ts",
+        "package.json",
+        "tsconfig.json"
+      ]
     },
     "lint": {},
     "dev": {

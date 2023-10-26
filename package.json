@@ -8,12 +8,10 @@
     "start:fe": "turbo run dev --filter=app",
     "start:be": "turbo run dev --filter=server"
   },
-  "devDependencies": {
-    "eslint": "^8.52.0",
-    "prettier": "~3.0.3",
+  "name": "core",
+  "dependencies": {
     "turbo": "latest"
   },
-  "name": "core",
   "packageManager": "bun@1.0.7",
   "workspaces": [
     "fe/app",

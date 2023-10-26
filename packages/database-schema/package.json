@@ -1,6 +1,7 @@
 {
   "name": "@core/database-schema",
   "sideEffects": false,
+  "private": true,
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {

@@ -1,6 +1,7 @@
 {
   "name": "server",
   "module": "src/index.ts",
+  "private": true,
   "type": "module",
   "scripts": {
     "start": "bun run dev && bun run dev:docker",

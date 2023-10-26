@@ -2,9 +2,8 @@ module.exports = {
   env: { browser: true, es2020: true },
   extends: [
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended",
-    "@config/eslint-config",
+    "@core/eslint-config",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {

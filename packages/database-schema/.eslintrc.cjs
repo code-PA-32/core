@@ -1,8 +1,8 @@
-require("@config/eslint-config/patch")
+require("@core/eslint-config/patch")
 
 module.exports = {
   parserOptions: {
     tsconfigRootDir: __dirname,
   },
-  extends: ["@config/eslint-config"],
+  extends: ["@core/eslint-config"],
 }

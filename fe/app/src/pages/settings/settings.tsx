@@ -18,7 +18,7 @@ import {
   DropdownMenuTrigger,
   useToast,
   ToastAction,
-} from "ui";
+} from "@core/ui";
 
 const Setting = () => {
   const { toast } = useToast();

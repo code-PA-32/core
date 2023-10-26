@@ -1,6 +1,6 @@
 import { Link, Route } from "@tanstack/react-router";
 import { rootRoute } from "#router";
-import { Button, Input } from "ui";
+import { Button, Input } from "@core/ui";
 import React, { useState } from "react";
 import { createCode } from "supertokens-web-js/recipe/passwordless";
 
@@ -18,6 +18,7 @@ async function sendMagicLink(email: string) {
     console.error("Oops! Something went wrong.", err);
   }
 }
+
 const Login = () => {
   const [email, setEmail] = useState("");
 

@@ -1,5 +1,5 @@
 {
-  "name": "ui",
+  "name": "@core/ui",
   "private": true,
   "version": "0.0.1",
   "types": "./dist/index.d.ts",
@@ -33,8 +33,8 @@
     "tsup": "~7.2.0"
   },
   "devDependencies": {
-    "@config/tailwind": "workspace:*",
-    "@config/eslint-config": "workspace:*",
+    "@core/tailwind": "workspace:*",
+    "@core/eslint-config": "workspace:*",
     "@types/node": "~20.8.8",
     "@types/react": "~18.2.32",
     "@types/react-dom": "~18.2.14",

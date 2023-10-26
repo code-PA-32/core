@@ -1,1 +1,1 @@
-module.exports = require("@config/tailwind/postcss.config.js");
+module.exports = require("@core/tailwind/tailwind.config.js");

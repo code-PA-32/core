@@ -1,10 +1,10 @@
 import React from "react";
-import {Button} from "ui";
-import {Outlet, Link, Router, RootRoute} from "@tanstack/react-router";
-import {SettingIndex} from "#pages/settings/index.js";
-import {LoginIndex, VerifyIndex} from "#pages/login/index.js";
-import {ModeToggle} from "#theme/index.js";
-import {Logout} from "#utils/auth.js";
+import { Button } from "@core/ui";
+import { Outlet, Link, Router, RootRoute } from "@tanstack/react-router";
+import { SettingIndex } from "#pages/settings/index.js";
+import { LoginIndex, VerifyIndex } from "#pages/login/index.js";
+import { ModeToggle } from "#theme/index.js";
+import { Logout } from "#utils/auth.js";
 
 const RootRedirect = () => {
   return (
@@ -19,13 +19,13 @@ const RootRedirect = () => {
           </Link>
         </div>
         <div className="flex gap-2 items-center">
-          <ModeToggle className="h-6 w-6"/>
+          <ModeToggle className="h-6 w-6" />
           <Button onClick={Logout}>Logout</Button>
         </div>
       </div>
-      <hr/>
-      <br/>
-      <Outlet/>
+      <hr />
+      <br />
+      <Outlet />
     </>
   );
 };
@@ -40,7 +40,7 @@ const routeTree = rootRoute.addChildren([
   VerifyIndex,
 ]);
 
-export const router = new Router({routeTree});
+export const router = new Router({ routeTree });
 
 declare module "@tanstack/react-router" {
   interface Register {

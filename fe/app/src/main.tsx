@@ -4,7 +4,7 @@ import "./services/supertokens.js";
 import { RouterProvider } from "@tanstack/react-router";
 import { router } from "#router";
 import { ThemeProvider } from "next-themes";
-import { Toaster } from "ui";
+import { Toaster } from "@core/ui";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <ThemeProvider attribute="class">

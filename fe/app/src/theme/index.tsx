@@ -9,7 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
   cn,
-} from "ui";
+} from "@core/ui";
 
 const Bar = ({ className }: { className?: string }) => {
   return (

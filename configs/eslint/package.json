@@ -1,5 +1,5 @@
 {
-  "name": "@config/eslint-config",
+  "name": "@core/eslint-config",
   "private": true,
   "version": "0.0.1",
   "main": "./index.js",

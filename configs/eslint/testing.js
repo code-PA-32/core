@@ -1,10 +1,10 @@
 require("@rushstack/eslint-patch/modern-module-resolution")
 
 module.exports = {
-  plugins: ["testing-library", "ui-testing"],
+  plugins: ["testing-library"],
   overrides: [
     {
-      extends: ["plugin:ui-testing/playwright", "plugin:testing-library/react"],
+      extends: ["plugin:testing-library/react"],
       files: ["**/__tests__/**/*", "**/*.{spec,test}.*"],
       env: {
         node: true,

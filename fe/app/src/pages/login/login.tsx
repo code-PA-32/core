@@ -1,6 +1,6 @@
 import { Link, Route } from "@tanstack/react-router";
 import { rootRoute } from "#router";
-import { Button, Input } from "@core/ui";
+import { Button, Input, Label } from "@core/ui";
 import React, { useState } from "react";
 import { createCode } from "supertokens-web-js/recipe/passwordless";
 
@@ -38,12 +38,18 @@ const Login = () => {
         onSubmit={onSubmit}
         className="w-[300px] h-[200px] p-2  rounded flex flex-col justify-center items-center gap-2 mx-auto"
       >
-        <Input
-          type="email"
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+        <Label className="w-full">
+          <span className="inline-block pb-2">Email</span>
+
+          <span className="text-red-500">*</span>
+          <Input
+            type="email"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </Label>
+
         <Button type="submit" disabled={!email} className="w-full">
           Send magic link
         </Button>

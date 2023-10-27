@@ -9,19 +9,24 @@
     "build": "bun build src/index.ts --outdir ./dist",
     "tsc": "tsc",
     "lint": "eslint --ext .ts src",
-    "dev:docker": "docker-compose up -d"
+    "dev:docker": "docker-compose up -d",
+    "db-migration": "bun run db-migration.ts"
   },
   "devDependencies": {
     "@core/eslint-config": "workspace:*",
     "bun-types": "~1.0.6",
     "@types/express": "~4.17.19",
-    "@types/cors": "~2.8.14"
+    "@types/cors": "~2.8.14",
+    "drizzle-kit": "~0.19.13"
   },
   "dependencies": {
     "cors": "~2.8.5",
     "express": "~4.18.2",
     "supertokens-node": "~16.3.3",
-    "zod": "^3.22.4"
+    "drizzle-orm": "~0.28.6",
+    "zod": "^3.22.4",
+    "postgres": "~3.4.0",
+    "@core/database-schema": "workspace:*"
   },
   "peerDependencies": {
     "typescript": "~5.0.0"

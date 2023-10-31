@@ -33,8 +33,8 @@
     "tsup": "~7.2.0"
   },
   "devDependencies": {
-    "@core/tailwind": "workspace:*",
-    "@core/eslint-config": "workspace:*",
+    "@core/tailwind": "0.0.1",
+    "@core/eslint-config": "0.0.1",
     "@types/node": "~20.8.8",
     "@types/react": "~18.2.32",
     "@types/react-dom": "~18.2.14",

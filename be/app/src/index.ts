@@ -1,16 +1,19 @@
-import express from "express";
-import cors from "cors";
+import Fastify from "fastify";
 import supertokens from "supertokens-node";
 import Session from "supertokens-node/recipe/session";
 import Passwordless from "supertokens-node/recipe/passwordless";
-import { middleware, errorHandler } from "supertokens-node/framework/express";
+import formDataPlugin from "@fastify/formbody";
+import cors from "@fastify/cors";
+import { plugin, errorHandler } from "supertokens-node/framework/fastify";
 
-const app = express();
+const fastify = Fastify({
+  logger: true,
+});
 
 const port: number = process.env.PORT as any as number;
 
 supertokens.init({
-  framework: "express",
+  framework: "fastify",
   supertokens: {
     connectionURI: process.env.SUPERTOKENS_URL as string,
     apiKey: process.env.SUPERTOKENS_API_KEY as string,
@@ -31,26 +34,46 @@ supertokens.init({
   ],
 });
 
-app.use(
-  cors({
-    origin: process.env.WEBSITE_DOMAIN as string,
-    allowedHeaders: ["content-type", ...supertokens.getAllCORSHeaders()],
-    credentials: true,
-  }),
-);
-
-app.use(middleware());
-
-app.use((req, res, next) => {
-  next();
+void fastify.register(cors, {
+  origin: "http://localhost:3001",
+  allowedHeaders: ["Content-Type", ...supertokens.getAllCORSHeaders()],
+  credentials: true,
+});
+void fastify.register(formDataPlugin);
+void fastify.register(plugin);
+fastify.setErrorHandler(errorHandler());
+fastify.get("/", function get(request, reply) {
+  void reply.send({ hello: "world" });
 });
 
-app.get("/", (req, res) => {
-  res.send(JSON.stringify(`Hello world! ${req.path}`));
+fastify.addHook("preHandler", (request, reply, done) => {
+  fastify.log.info(
+    {
+      req: request,
+    },
+    "request started",
+  );
+  done();
 });
 
-app.use(errorHandler());
-
-app.listen(port, "localhost", 511, () => {
-  console.info(`Server is listening on port ${port}`);
+fastify.addHook("onResponse", (request, reply, done) => {
+  const responseTime = reply.getResponseTime();
+  fastify.log.info(
+    {
+      response: {
+        statusCode: reply.raw.statusCode,
+      },
+      responseTime,
+    },
+    "request completed",
+  );
+  done();
 });
+
+void fastify
+  .listen({ port })
+  .then(() => fastify.log.info("Server started on port 4000"))
+  .catch((err) => {
+    fastify.log.error(err);
+    process.exit(1);
+  });

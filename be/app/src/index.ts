@@ -1,3 +1,4 @@
+import type { FastifyReply, FastifyRequest } from "fastify";
 import Fastify from "fastify";
 import supertokens from "supertokens-node";
 import Session from "supertokens-node/recipe/session";
@@ -5,6 +6,7 @@ import Passwordless from "supertokens-node/recipe/passwordless";
 import formDataPlugin from "@fastify/formbody";
 import cors from "@fastify/cors";
 import { plugin, errorHandler } from "supertokens-node/framework/fastify";
+import { createYoga } from "graphql-yoga";
 
 const fastify = Fastify({
   logger: true,
@@ -33,9 +35,21 @@ supertokens.init({
     Session.init(),
   ],
 });
+const yoga = createYoga<{
+  req: FastifyRequest;
+  reply: FastifyReply;
+}>({
+  // Integrate Fastify logger
+  logging: {
+    debug: (...args) => args.forEach((arg) => fastify.log.debug(arg)),
+    info: (...args) => args.forEach((arg) => fastify.log.info(arg)),
+    warn: (...args) => args.forEach((arg) => fastify.log.warn(arg)),
+    error: (...args) => args.forEach((arg) => fastify.log.error(arg)),
+  },
+});
 
 void fastify.register(cors, {
-  origin: "http://localhost:3001",
+  origin: process.env.WEBSITE_DOMAIN as string,
   allowedHeaders: ["Content-Type", ...supertokens.getAllCORSHeaders()],
   credentials: true,
 });
@@ -44,6 +58,23 @@ void fastify.register(plugin);
 fastify.setErrorHandler(errorHandler());
 fastify.get("/", function get(request, reply) {
   void reply.send({ hello: "world" });
+});
+fastify.route({
+  url: "/graphql",
+  method: ["GET", "POST"],
+  handler: async (req, reply) => {
+    // Second parameter adds Fastify's `req` and `reply` to the GraphQL Context
+    const response = await yoga.handleNodeRequest(req, {
+      req,
+      reply,
+    });
+    response.headers.forEach((value, key) => {
+      void reply.header(key, value);
+    });
+    void reply.status(response.status);
+    void reply.send(response.body);
+    return reply;
+  },
 });
 
 fastify.addHook("preHandler", (request, reply, done) => {
